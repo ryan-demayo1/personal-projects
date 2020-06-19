@@ -1,0 +1,6 @@
+javascript:function myMethod( ) 
+{ document.querySelector("button[data-qa='keep_listening_button']").click();} 
+var timer = setInterval(myMethod, 1000); 
+if(timer) { alert('Thanks for listening!'); }
+
+// A script that clicks the button to close the popup that stops music from playing on pandora.
