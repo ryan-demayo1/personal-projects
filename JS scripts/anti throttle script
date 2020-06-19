@@ -1,0 +1,6 @@
+javascript:function myMethod() 
+{document.querySelector('.js-start-test').click();} 
+var timer = setInterval(myMethod, 1000); 
+if(timer) {alert('test running');}
+
+//script to start a speed test on speedtest.net and run another one whenever a test is completed.
