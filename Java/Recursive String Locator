@@ -1,0 +1,65 @@
+package stringLocator;
+
+public class Locator {
+	
+	public static String charArrayToString(char[] array, int startIndex, int lastIndex) {
+	    return new String(array, startIndex, lastIndex - startIndex + 1);
+		// This method converts elements at index from startIndex to lastIndex in a char array into a string
+	    
+	}
+	
+	
+	public static int helper(char A[], String s, int location){
+	if(location == -1){//if the string was not found in the array, stops and returns -1
+		
+		return location;
+	}
+
+	
+	boolean isMatch = true;
+	
+		for(int i = location; i < location + s.length(); i++){//checks for the string
+		
+			if(A[i] != s.charAt(i - location)){//returns false if the string was not found
+		
+				isMatch = false;
+				break;
+			
+			}
+		}
+	
+	if(isMatch == false){//if the string is not found, run the method again
+				
+		return helper(A, s, location - 1);
+		
+	}
+	else{//returns location if the string is found
+		
+		return location;
+	}
+	
+	
+	}
+	
+	public static int where(char[] A, String s)
+	{
+		
+		
+	return helper(A, s, A.length - s.length());
+
+
+
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method
+		char[] givenarray = {'a', 'm', 'a', 'r', 'i', 's', 't', 'm', 'a', 'r', 'i', 's', 't', 'v', 'h', 'e'};	
+
+		
+		System.out.println("The rightmost occurence of 'marist' in the given array is at index "+ where(givenarray, "marist"));
+		
+		
+		
+		
+	}
+}
