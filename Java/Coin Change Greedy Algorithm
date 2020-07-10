@@ -1,0 +1,55 @@
+package change;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Coinchange {
+
+	public static int greedycoinchange(int givenvalue, int[] givencoins)
+	{
+		
+		// Makes change of givenvalue using coins in the array givencoins
+		// Minimizes the number of coins used
+
+		
+		int x = 0;
+		int count = 0;
+				
+		while(givenvalue > 0){//checks that change needs to be made
+			
+			if(givenvalue >= givencoins[x]){//checks largest coins first to see if it can be used
+				
+				givenvalue = givenvalue - givencoins[x];//subtracts the largest coin
+				count++;
+
+			}
+			else{//if the largest coin can't be used, increments x, which lets the next largest coin be checked
+				
+				x++;					
+			}	
+		}
+		
+		return count;
+		
+	}
+	
+	
+	public static void main(String[] args) {
+
+
+		int n = 0; // n cents
+		
+		Scanner reader = new Scanner(System.in);  
+		
+		System.out.println("Please enter the value you want to make change: ");
+		
+		n = reader.nextInt();
+		
+		int[] coins = {25, 10, 5, 1};
+		
+		System.out.println("used "+ greedycoinchange(n, coins)+" coins for "+ n + " cents");
+		
+	}
+
+}
